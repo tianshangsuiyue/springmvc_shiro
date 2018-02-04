@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lh.dao.UserDao">
+    <resultMap id="userMap" type="User">
+        <id column="userid" property="userid" />
+        <result column="username" property="username"></result>
+        <result column="age" property="age"></result>
+        <result column="pwd" property="pwd"></result>
+        <result column="role" property="role"></result>
+    </resultMap>
+
+    <select id="doUserLogin" resultMap="userMap" parameterType="String">
+          select userid ,username,age,pwd,role
+          from user
+          where username=#{username}
+    </select>
+
+    <select id="selectAll" resultMap="userMap">
+        select userid ,username,age,pwd,role
+        from
+        USER
+    </select>
+</mapper>
